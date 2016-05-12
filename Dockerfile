@@ -57,7 +57,7 @@ RUN apt-get -y --no-install-recommends install libfontconfig curl ca-certificate
     dpkg -i /tmp/grafana.deb && \
     rm /tmp/grafana.deb && \
     curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
-    chmod +x /usr/sbin/gosu && \    
+    chmod +x /usr/sbin/gosu && \
     apt-get autoremove -y
 
 # config nginx
@@ -92,6 +92,7 @@ VOLUME ["/opt/graphite", "/etc/nginx", "/etc/logrotate.d", "/var/log"]
 VOLUME ["/var/lib/grafana", "/var/lib/grafana/plugins", "/var/log/grafana", "/etc/grafana"]
 
 EXPOSE 3000
+EXPOSE 8125
 
 ENV HOME /root
 
